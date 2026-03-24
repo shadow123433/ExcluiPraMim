@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Recuperação</title>
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+
+  <main class="container">
+
+    <h1>Assistente de Recuperação</h1>
+
+    <p class="progress">Etapa <span id="step-indicator">1</span> de 3</p>
+
+    <!-- STEP 1 -->
+    <div id="step1" class="card fade-in">
+      <h2>Qual é o seu problema?</h2>
+      <button class="btn" data-problem="hack">Conta hackeada</button>
+      <button class="btn" data-problem="senha">Esqueci a senha</button>
+      <button class="btn" data-problem="email">Perdi o e-mail</button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div id="step2" class="card hidden fade-in">
+      <h2>Você ainda tem acesso ao e-mail?</h2>
+      <button class="btn" data-answer="sim">Sim</button>
+      <button class="btn" data-answer="nao">Não</button>
+
+      <button class="btn-secondary" onclick="resetFlow()">Voltar</button>
+    </div>
+
+    <!-- RESULT -->
+    <div id="result" class="card hidden fade-in">
+      <h2>Plano de recuperação</h2>
+
+      <div class="result-box">
+        <p id="output"></p>
+      </div>
+
+      <button class="btn-secondary" onclick="resetFlow()">Recomeçar</button>
+    </div>
+
+  </main>
+
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/flow.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
