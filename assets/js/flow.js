@@ -50,8 +50,11 @@ async function generatePlan() {
   goToStep(elements.step2, elements.result, 3);
   setLoading(elements.output, "Gerando seu plano personalizado...");
 
+  // URL correta do seu backend no Render
+  const API_URL = "https://instarecover.onrender.com/api/recovery";
+
   try {
-    const response = await fetch("http://localhost:3000/api/recovery", {
+    const response = await fetch(API_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -59,12 +62,13 @@ async function generatePlan() {
       body: JSON.stringify(state)
     });
 
-    if (!response.ok) throw new Error();
+    if (!response.ok) throw new Error("Erro na resposta do servidor");
 
     const data = await response.json();
     renderResult(data);
 
-  } catch {
+  } catch (error) {
+    console.error("Erro detalhado:", error);
     showError(elements.output, "Não foi possível conectar ao servidor. Verifique sua conexão.");
   }
 }
