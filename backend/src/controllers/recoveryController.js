@@ -13,9 +13,9 @@ exports.handleRecovery = (req, res) => {
   try {
     const result = generateRecoveryPlan(problem, emailAccess);
 
-    return res.json(result);
+    return res.json(result);  //coleta a resposta do service e manda pro frontend
   } catch (error) {
-    return res.status(500).json({
+    return res.status(500).json({  //caso aconteça alguma coisa de errado no service
       error: "Erro interno no servidor"
     });
   }

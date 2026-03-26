@@ -9,12 +9,12 @@ app.use(cors());
 app.use(express.json());
 
 // caminho da raiz (onde estão index.html e assets)
-const publicPath = path.join(__dirname, "../../");
+const publicPath = path.join(__dirname, "../../assets");
 
 // arquivos físicos (CSS, JS, Imagens)
 app.use(express.static(publicPath));
 
-// 2. Depois, as rotas da sua API
+//endereços das rotas da API
 app.use("/api/recovery", recoveryRoutes);
 
 

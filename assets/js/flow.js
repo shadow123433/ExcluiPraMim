@@ -19,10 +19,10 @@ document.querySelectorAll("[data-problem]").forEach(btn => {
     const step2Title = elements.step2.querySelector("h2");
     
     if (state.problem === 'email') {
-      // Se ele já disse que perdeu o e-mail, perguntamos sobre o Celular
+      // Se ele já disse que perdeu o e-mail, pergunto sobre o Celular
       step2Title.innerText = "Você ainda possui o número de celular vinculado?";
     } else {
-      // Caso contrário, mantemos a pergunta padrão
+      // Caso contrário, vou manter a pergunta padrão
       step2Title.innerText = "Você ainda tem acesso ao e-mail da conta?";
     }
     
@@ -50,7 +50,7 @@ async function generatePlan() {
   goToStep(elements.step2, elements.result, 3);
   setLoading(elements.output, "Gerando seu plano personalizado...");
 
-  // URL correta do seu backend no Render
+  // URL do meu render.
   const API_URL = "https://instarecover.onrender.com/api/recovery";
 
   try {
